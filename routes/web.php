@@ -1,6 +1,8 @@
 <?php
 
 use App\Events\UserRegistered;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/prueba', function () {
 
-    UserRegistered::dispatch('Evento disparado');
-
-    return 'Hola Mundo con Laravel';
+    $user = User::find(1);
+    Gate::forUser($user)->authorize('isAdmin');
+    return $user;
 });
