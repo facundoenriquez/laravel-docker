@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/prueba', function () {
 
-    $user = User::find(1);
-    Gate::forUser($user)->authorize('isAdmin');
+    $user = User::query();
+    $user->name('enriquez')->get();
     return $user;
 });
