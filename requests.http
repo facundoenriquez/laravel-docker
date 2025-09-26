@@ -1,0 +1,3 @@
+### show all marcas
+GET http://localhost:8080/api/marcas
+Accept: application/json

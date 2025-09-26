@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\UserRegistered;
+use App\Models\Marca;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,9 @@ Route::get('/', function () {
 
 Route::get('/prueba', function () {
 
-    $q = User::query();
-    $users =  $q->name('facundo')->get();
-    return $users;
+    return Marca::with('autos')->get();
+
+    // $q = User::query();
+    // $users =  $q->name('facundo')->get();
+    // return $users;
 });
