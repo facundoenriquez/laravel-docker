@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/prueba', function () {
 
-    $user = User::query();
-    $user->name('enriquez')->get();
-    return $user;
+    $q = User::query();
+    $users =  $q->name('facundo')->get();
+    return $users;
 });
